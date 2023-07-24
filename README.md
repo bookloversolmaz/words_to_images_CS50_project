@@ -8,5 +8,6 @@ b, j, k, q, v, x, y, z = 4 points
 c, d, f, g, h, l, m, n, p, r, s, t, w = 1 point
 
 |Input|Process|Output|
+|-----|-------|------|
 |User enters their name 'Dave'|D = 1, A = 2, V = 4, E = 2 total = 9|Return image assigned to a value of 9, e.g a dog|
 |User enters word 'cat'|C = 1, A = 2, T = 1 total = 4| Return images assigned to a value of 4, e.g a cat|
