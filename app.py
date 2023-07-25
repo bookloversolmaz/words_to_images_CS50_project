@@ -10,6 +10,12 @@ def home():
 @app.route("/images", methods=["GET", "POST"])
 def images():
     if request.method == "POST":
-# Code below starts the development server
+    # Code below starts the development server
+        return render_template("images.html")
+    else:
+        return render_template("home.html")
+
+
+
 if __name__ == "__main__":
     app.run()

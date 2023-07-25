@@ -16,11 +16,12 @@ class TestApp(unittest.TestCase):
         # as response data is usually in bytes.
         self.assertIn(b'<h1>Words to images</h1>', response.data)
         self.assertIn (b'Enter a word or phrase here', response.data)
-    def setUp(self):
-        # Create a test client for the app
-        self.app = app.test_client()
-    def images(self):
+    def test_images(self):
         response = self.app.post("/images")
         self.assertIn(b'<h1>Images</h1>', response.data)
+        # Test that there is an image tag
+        
+        response = self.app.get("/")
+        self.assertIn(b'<h1>Words to images</h1>', response.data)
 if __name__ == "__main__":
     unittest.main()
