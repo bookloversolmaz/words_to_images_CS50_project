@@ -1,20 +1,26 @@
 import unittest
-
 from app import app
 
-class AppTestCase(unittest.TestCase):
+# In Flask, the app object should not be called as a function (i.e., app()), 
+# but it should be used directly as the test client.
+
+class TestApp(unittest.TestCase):
+    # The setUp method is called before each test method. It 
+    # creates a test client for the Flask app using app.test_client().
     def setUp(self):
-        self.ctx = app.app_context()
-        self.ctx.push()
-        self.client = app.test_client()
-
-    def tearDown(self):
-        self.ctx.pop()
-
+        # Create a test client for the app
+        self.app = app.test_client()
     def test_home(self):
-        response = self.client.post("/", data={"content": "words to images"})
-        assert response.status_code == 200
-        assert "POST method called" == response.get_data(as_text=True)
-
+        response = self.app.get("/")
+        # The b before the string indicates that it's a byte-string, 
+        # as response data is usually in bytes.
+        self.assertIn(b'<h1>Words to images</h1>', response.data)
+        self.assertIn (b'Enter a word or phrase here', response.data)
+    def setUp(self):
+        # Create a test client for the app
+        self.app = app.test_client()
+    def images(self):
+        response = self.app.post("/images")
+        self.assertIn(b'<h1>Images</h1>', response.data)
 if __name__ == "__main__":
     unittest.main()
