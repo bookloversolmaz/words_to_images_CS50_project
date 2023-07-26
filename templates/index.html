@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Words to images</title>
+</head>
+<body>
+  <h1>Words to images</h1>
+
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <ul>
+        {% for message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  {% endwith %}
+
+  <form method="post">
+    Enter a word or phrase here: <input type="text" name="text" />
+    <br /><br />
+    <button type="submit">Submit</button>
+  </form>
+
+  {% if total_sum is not none %}
+    <p>Total Sum: {{ total_sum }}</p>
+    {% if total_sum <= 5 %}
+      <img src="path/to/cat-image.jpg" alt="Cat Image">
+    {% elif total_sum <= 15 %}
+      <img src="path/to/dog-image.jpg" alt="Dog Image">
+    {% elif total_sum <= 25 %}
+      <img src="path/to/third-image.jpg" alt="Third Image">
+    {% elif total_sum <= 35 %}
+      <img src="path/to/fourth-image.jpg" alt="Fourth Image">
+    {% else %}
+      <img src="path/to/fifth-image.jpg" alt="Fifth Image">
+    {% endif %}
+  {% endif %}
+</body>
+</html>

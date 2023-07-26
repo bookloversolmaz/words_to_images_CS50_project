@@ -1,18 +1,15 @@
 # This pages is where any configuration, registration, and other setup the application needs will happen. 
 from flask import Flask, render_template, request, flash
+import secrets
 # Creates a flask application object in the current python module
 app = Flask(__name__)
 
+# Generate a secure random secret key
+app.secret_key = secrets.token_hex(16)
+
 @app.route("/", methods=["GET"])
 def home():
-    return render_template("home.html")
-
-# @app.route("/images", methods=["GET", "POST"])
-# def images():
-#     if request.method == "POST":
-#         return render_template("images.html", text=text)
-#     else:
-#         return render_template("home.html")
+    return render_template("index.html", total_sum=None)
 
 def get_letter_value(letter):
     vowel = 'aeiou'
@@ -26,7 +23,9 @@ def get_letter_value(letter):
     elif letter.lower() in remainder:
         return 1
     else:
-        flash("Please enter text only")
+        if flash and request:
+            flash('Please enter a word')
+        return 0
 
 @app.route('/', methods=['GET', 'POST'])
 def calculate_letter_sum():
@@ -36,12 +35,12 @@ def calculate_letter_sum():
 
         for letter in text:
             total_sum += get_letter_value(letter)
-
-        total_sum
     
-    return render_template('index.html')
-    # <= 5: cat image, 6 to 15: dog image, 16 to 25: third image, 26 to 35: fourth image, 36+ fifth image
-
+        return render_template('index.html', total_sum=total_sum)
+    # Pass total_sum as None for the initial rendering
+    return render_template('index.html', total_sum=None)
+# <= 5: cat image, 6 to 15: dog image, 16 to 25: third image, 26 to 35: fourth image, 36+ fifth image
+# Defined in html
 
 if __name__ == "__main__":
     app.run()
