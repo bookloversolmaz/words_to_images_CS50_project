@@ -4,7 +4,7 @@ import secrets
 # Creates a flask application object in the current python module
 app = Flask(__name__)
 
-# Generate a secure random secret key
+# Generate a secure random secret key of 16 bytes
 app.secret_key = secrets.token_hex(16)
 
 @app.route("/", methods=["GET"])
