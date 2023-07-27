@@ -13,7 +13,7 @@ def home():
 
 def get_letter_value(letter):
     vowel = 'aeiou'
-    consonant = 'bjkqvxz'
+    consonant = 'bjkqvxyz'
     remainder = 'cdfghlmnprstw'
     
     if letter.lower() in vowel:

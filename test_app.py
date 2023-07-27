@@ -20,12 +20,16 @@ class TestApp(unittest.TestCase):
     def test_get_letter_value(self):
         response = get_letter_value('E')
         self.assertEqual(response, 2)
+
         response = get_letter_value('c')
         self.assertEqual(response, 1)
+
         response = get_letter_value('b')
         self.assertEqual(response, 4)
+
         response = get_letter_value(' ')
         self.assertEqual(response, 0)
+
         response = get_letter_value('3')
         self.assertEqual(response, 0)
     
@@ -34,6 +38,14 @@ class TestApp(unittest.TestCase):
         response = self.app.post("/", data={"text": "hi"})
         self.assertEqual(response.status_code, 200)
         self.assertIn(b'Total Sum: 3', response.data)
+
+        response = self.app.post("/", data={"text": "hello monkey"})
+        self.assertEqual(response.status_code, 200)
+        self.assertIn(b'Total Sum: 21', response.data)
+
+        response = self.app.post("/", data={"text": "31"})
+        self.assertNotEqual(response.status_code, 401)
+        self.assertIn(b'Total Sum: 0', response.data)
     
     def tearDown(self) -> None:
         return super().tearDown()
