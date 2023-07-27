@@ -1,5 +1,5 @@
 import unittest
-from app import app, get_letter_value, flash
+from app import app, get_letter_value, calculate_letter_sum, flash
 
 # In Flask, the app object should not be called as a function (i.e., app()), 
 # but it should be used directly as the test client.
@@ -28,6 +28,15 @@ class TestApp(unittest.TestCase):
         self.assertEqual(response, 0)
         response = get_letter_value('3')
         self.assertEqual(response, 0)
+    
+    def test_calculate_letter_sum(self):
+        # Sctual data being sent in the POST request in data={"text": "hi"} as a key value pair in a dictionary
+        response = self.app.post("/", data={"text": "hi"})
+        self.assertEqual(response.status_code, 200)
+        self.assertIn(b'Total Sum: 3', response.data)
+    
+    def tearDown(self) -> None:
+        return super().tearDown()
 
 if __name__ == "__main__":
     unittest.main()
