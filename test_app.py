@@ -34,7 +34,8 @@ class TestApp(unittest.TestCase):
         self.assertEqual(response, 0)
     
     def test_calculate_letter_sum(self):
-        # Sctual data being sent in the POST request in data={"text": "hi"} as a key value pair in a dictionary
+        # A
+        # ctual data being sent in the POST request in data={"text": "hi"} as a key value pair in a dictionary
         response = self.app.post("/", data={"text": "hi"})
         self.assertEqual(response.status_code, 200)
         self.assertIn(b'Total Sum: 3', response.data)
@@ -46,6 +47,7 @@ class TestApp(unittest.TestCase):
         response = self.app.post("/", data={"text": "31"})
         self.assertNotEqual(response.status_code, 401)
         self.assertIn(b'Total Sum: 0', response.data)
+    # Check that it returns the correct image for the correct score
     
     def tearDown(self) -> None:
         return super().tearDown()

@@ -29,3 +29,4 @@ As this is a web application, the user will not be required to download any spec
 ## Edge cases
 The program only assigns values to letters from the latin alphabet. All other special characters, including punctuation and blank spaces, will be ignored. If the user does not enter at least one letter, the program will return an error message, asking the user to input a word. The program will not be case sensitive.
 
+Photos from Unsplash.com
