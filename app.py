@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 # Generate a secure random secret key of 16 bytes
 app.secret_key = secrets.token_hex(16)
-
+images = {"null Image": "/static/null-image.jpg" }
 @app.route("/", methods=["GET"])
 def home():
     return render_template("index.html", total_sum=None)
@@ -35,12 +35,11 @@ def calculate_letter_sum():
 
         for letter in text:
             total_sum += get_letter_value(letter)
-    
+
         return render_template('index.html', total_sum=total_sum)
     # Pass total_sum as None for the initial rendering
     return render_template('index.html', total_sum=None)
-# <= 5: cat image, 6 to 15: dog image, 16 to 25: third image, 26 to 35: fourth image, 36+ fifth image
-# Defined in html
+
 
 if __name__ == "__main__":
     app.run()
