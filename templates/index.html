@@ -26,17 +26,17 @@
   {% if total_sum is not none %}
     <p>Total Sum: {{ total_sum }}</p>
     {% if total_sum == 0 %}
-    <img src="/static/null-image.jpg" alt="null Image">
+    <img src="/static/null-image.jpg" width="648" height="486" alt="null Image">
     {% elif total_sum <= 5 %}
-      <img src="/static/cat-image.jpg" alt="Cat Image">
+      <img src="/static/cat-image.jpg" width="378" height="504" alt="Cat Image">
     {% elif total_sum <= 15 %}
-      <img src="/static/dog-image.jpg" alt="Dog Image">
+      <img src="/static/dog-image.jpg" width="340.5" height="605.25" alt="Dog Image">
     {% elif total_sum <= 25 %}
-      <img src="/static/stormtrooper-image.jpg" alt="Stormtrooper Image">
+      <img src="/static/stormtrooper-image.jpg" width="736.625" height="491.75" alt="Stormtrooper Image">
     {% elif total_sum <= 35 %}
-      <img src="/static/duck-image.jpg" alt="Duck Image">
+      <img src="/static/duck-image.jpg" width="378" height="504" alt="Duck Image">
     {% else %}
-      <img src="/static/eggs-image.jpg" alt="Eggs Image">
+      <img src="/static/eggs-image.jpg" width="812.5" height="541.75" alt="Eggs Image">
     {% endif %}
   {% endif %}
 </body>
