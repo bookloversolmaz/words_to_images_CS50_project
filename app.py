@@ -6,7 +6,6 @@ app = Flask(__name__)
 
 # Generate a secure random secret key of 16 bytes
 app.secret_key = secrets.token_hex(16)
-images = {"null Image": "/static/null-image.jpg" }
 @app.route("/", methods=["GET"])
 def home():
     return render_template("index.html", total_sum=None)
