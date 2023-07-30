@@ -15,15 +15,17 @@ def get_letter_value(letter):
     consonant = 'bjkqvxyz'
     remainder = 'cdfghlmnprstw'
     
-    if letter.lower() in vowel:
-        return 2
-    elif letter.lower() in consonant:
-        return 4
-    elif letter.lower() in remainder:
-        return 1
+    if letter.isalpha():
+        if letter.lower() in vowel:
+            return 2
+        elif letter.lower() in consonant:
+            return 4
+        elif letter.lower() in remainder:
+            return 1
+    elif letter == " ":
+        return 0
     else:
-        if flash and request:
-            flash('Please enter a word')
+        flash('Please enter a word')
         return 0
 
 @app.route('/', methods=['GET', 'POST'])

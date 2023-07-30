@@ -2,12 +2,11 @@
 {% block content %}
   <body>
     <h1>Words to images</h1>
-
     <form method="post">
       Enter a word or phrase here: <input type="text" name="text" />
-      <br /><br />
       <button type="submit">Submit</button>
     </form>
+    <br><br/>
     {% with messages = get_flashed_messages(with_categories=true) %}
     {% if messages %}
       <ul class=flashes>
@@ -22,13 +21,13 @@
       <p>Total Sum: {{ total_sum }}</p>
       {% if total_sum == 0 %}
       <img src="/static/null-image.jpg" width="648" height="486" alt="null Image">
-      {% elif total_sum <= 5 %}
+      {% elif 1 <= total_sum <= 5 %}
         <img src="/static/cat-image.jpg" width="378" height="504" alt="Cat Image">
-      {% elif total_sum <= 15 %}
+      {% elif 6 < total_sum <= 15 %}
         <img src="/static/dog-image.jpg" width="340.5" height="605.25" alt="Dog Image">
-      {% elif total_sum <= 25 %}
+      {% elif 16 < total_sum <= 25 %}
         <img src="/static/stormtrooper-image.jpg" width="736.625" height="491.75" alt="Stormtrooper Image">
-      {% elif total_sum <= 35 %}
+      {% elif 26< total_sum <= 35 %}
         <img src="/static/duck-image.jpg" width="378" height="504" alt="Duck Image">
       {% else %}
         <img src="/static/eggs-image.jpg" width="812.5" height="541.75" alt="Eggs Image">
