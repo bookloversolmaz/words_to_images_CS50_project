@@ -22,8 +22,9 @@ def get_letter_value(letter):
             return 4
         elif letter.lower() in remainder:
             return 1
-    elif letter == " " or "!" or "?" or "," or "." or ":" or ";" or "&":
+    elif letter == " ":
         return 0
+    # else: letter == "!" or "?" or "," or "." or ":" or ";" or "&":
     else:
         flash('Please enter a word')
         return 0

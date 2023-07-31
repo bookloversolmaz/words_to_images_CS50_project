@@ -1,4 +1,8 @@
 # Words to images
+
+## Video demonstration
+
+
 ## Description
 This project is a web application created with Python in the Flask framework. The user inputs a word or sentence, and the program
 converts that into an image, based on a value assigned to each letter. These values are then added together to provide a total.
