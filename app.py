@@ -24,9 +24,7 @@ def get_letter_value(letter):
             return 1
     elif letter == " ":
         return 0
-    # else: letter == "!" or "?" or "," or "." or ":" or ";" or "&":
     else:
-        flash('Please enter a word')
         return 0
 
 @app.route('/', methods=['GET', 'POST'])
@@ -37,11 +35,11 @@ def calculate_letter_sum():
 
         for letter in text:
             total_sum += get_letter_value(letter)
+        
+        if total_sum == 0:
+          flash('Please enter a word')
 
-        return render_template('index.html', total_sum=total_sum)
-    # Pass total_sum as None for the initial rendering
-    return render_template('index.html', total_sum=None)
-
+    return render_template("index.html", total_sum=total_sum)
 
 if __name__ == "__main__":
     app.run()
