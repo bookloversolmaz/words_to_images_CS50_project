@@ -2,7 +2,7 @@
 
 ## Video demonstration
 <https://youtu.be/a3iOdKi_deE>
-<video src='<https://youtu.be/a3iOdKi_deE>' width=180/>
+![giphy-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/86ce8970-09c8-464f-b72a-34c871eecc5e)
 
 ## Description
 This project is a web application created with Python in the Flask framework. The user inputs a word or sentence, and the program
