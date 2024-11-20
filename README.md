@@ -2,7 +2,7 @@
 
 ## Video demonstration
 <https://youtu.be/a3iOdKi_deE>
-![](static/demo gif.gif)
+![](./static/demo gif.gif)
 
 ## Description
 This project is a web application created with Python in the Flask framework. The user inputs a word or sentence, and the program
