@@ -2,7 +2,7 @@
 
 ## Video demonstration
 <https://youtu.be/a3iOdKi_deE>
-[![Demo](https://share.gifyoutube.com/KzB6Gb.gif)](https://youtu.be/a3iOdKi_deE)
+<video src='<https://youtu.be/a3iOdKi_deE>' width=180/>
 
 ## Description
 This project is a web application created with Python in the Flask framework. The user inputs a word or sentence, and the program
